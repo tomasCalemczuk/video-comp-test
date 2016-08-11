@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8887E2B51D5CFC49007668E3 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8887E2B41D5CFC49007668E3 /* VC.swift */; };
 		E697E2C51D301C930047A28A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697E2C41D301C930047A28A /* AppDelegate.swift */; };
 		E697E2C71D301C930047A28A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697E2C61D301C930047A28A /* ViewController.swift */; };
 		E697E2CA1D301C930047A28A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E697E2C81D301C930047A28A /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8887E2B41D5CFC49007668E3 /* VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
 		E697E2C11D301C930047A28A /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E697E2C41D301C930047A28A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E697E2C61D301C930047A28A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				E697E2C41D301C930047A28A /* AppDelegate.swift */,
 				E697E2C61D301C930047A28A /* ViewController.swift */,
+				8887E2B41D5CFC49007668E3 /* VC.swift */,
 				E69A03031D5B8A0200146AC0 /* videoExporter.swift */,
 				E697E2C81D301C930047A28A /* Main.storyboard */,
 				E697E2CB1D301C930047A28A /* Assets.xcassets */,
@@ -99,7 +102,7 @@
 				TargetAttributes = {
 					E697E2C01D301C930047A28A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = LG2FX922VC;
+						DevelopmentTeam = EDLTE65NWH;
 					};
 				};
 			};
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8887E2B51D5CFC49007668E3 /* VC.swift in Sources */,
 				E69A03041D5B8A0200146AC0 /* videoExporter.swift in Sources */,
 				E697E2C71D301C930047A28A /* ViewController.swift in Sources */,
 				E697E2C51D301C930047A28A /* AppDelegate.swift in Sources */,

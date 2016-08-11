@@ -23,16 +23,10 @@ public class VideoExporter {
     private static var previewURL: NSURL?
     
     public static func exportVideo(videoURLs: [NSURL], videoPlayerLayer: AVPlayerLayer, videoPlayerLayer2: AVPlayerLayer) {
-        
-        var videoAssets = [AVAsset]()
-        
-        for url in videoURLs {
-            let avAsset = AVAsset(URL: url)
-            videoAssets.append(avAsset)
-        }
+
+        let videoAssets = videoURLs.map { AVAsset(URL: $0) }.sort { $0.duration > $1.duration }
         
         let composition = AVMutableComposition()
-        
         let mainInstruction = AVMutableVideoCompositionInstruction()
         
         var startTime = kCMTimeZero
@@ -42,19 +36,13 @@ public class VideoExporter {
             let videoTrack = composition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
             
             do {
-                try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, asset.duration),
-                                               ofTrack: asset.tracksWithMediaType(AVMediaTypeVideo)[0],
-                                               atTime: startTime)
+                try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, asset.duration), ofTrack: asset.tracksWithMediaType(AVMediaTypeVideo)[0], atTime: startTime)
             } catch {
                 print("Error creating track.")
             }
 
             let instruction = self.videoCompositionInstructionForTrack(videoTrack, asset: asset)
             
-            instruction.setOpacity(1.0, atTime:startTime)
-            if asset != videoAssets.last {
-                instruction.setOpacity(0.0, atTime: CMTimeAdd(startTime, asset.duration))
-            }
             mainInstruction.layerInstructions.append(instruction)
             
             startTime = CMTimeAdd(startTime, asset.duration)
@@ -117,12 +105,6 @@ public class VideoExporter {
     }
     
     public static func applyEffectsToVideo(layer1: AVPlayerLayer, layer2: AVPlayerLayer, composition: AVMutableVideoComposition, duration: CFTimeInterval) {
-    
-        
-//        backgroundLayer.frame = CGRect(x: 0.0, y: 0.0, width: 250, height: 250)
-
-        
-    
         let parentLayer = CALayer()
         parentLayer.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         parentLayer.masksToBounds = true
